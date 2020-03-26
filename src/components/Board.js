@@ -8,6 +8,9 @@ export default class Board extends Component {
         console.log("the box number you click", i)
         //1.make the one array and copy the value from parent array
         let squareList = this.props.squares.slice();
+        if(this.winnerCalculate(squareList) || squareList[i]){
+            return;
+        }
         //2.change the value at copied array
         squareList[i] = this.props.nextPlayer ? "o" : "x"
         //3 insert that array into parent array
